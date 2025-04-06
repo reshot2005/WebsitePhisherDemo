@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacked Info Log</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <header>
+    <h1>⚠️ Hacked Info Log</h1>
+    <p>This dashboard displays simulated credentials captured during phishing awareness tests.</p>
+  </header>
+
+  <main>
+    <table id="logTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Username</th>
+          <th>Password</th>
+          <th>Simulation</th>
+          <th>Timestamp</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Entries will be injected here by JavaScript -->
+      </tbody>
+    </table>
+    <button onclick="downloadLog()">Download as TXT</button>
+  </main>
+
+  <footer>
+    <ul>
+      <li>🔒 Your data is not stored — this is just for educational purposes</li>
+      <li>📘 Learn more about phishing on <a href="https://www.consumer.ftc.gov/articles/how-recognize-and-avoid-phishing-scams" target="_blank" style="color:#38bdf8;">FTC.gov</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    const sampleLog = JSON.parse(localStorage.getItem('phishingLogs')) || [];
+    const tbody = document.querySelector("#logTable tbody");
+
+    sampleLog.forEach((entry, index) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${index + 1}</td>
+        <td>${entry.username}</td>
+        <td>${entry.password}</td>
+        <td>${entry.simulation}</td>
+        <td>${new Date(entry.timestamp).toLocaleString()}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+
+    function downloadLog() {
+      let content = sampleLog.map((e, i) => `${i + 1}. [${e.simulation}] ${e.username} / ${e.password} @ ${new Date(e.timestamp).toLocaleString()}`).join("\n");
+      const blob = new Blob([content], { type: 'text/plain' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = "phishing_log.txt";
+      a.click();
+    }
+  </script>
+</body>
+</html>

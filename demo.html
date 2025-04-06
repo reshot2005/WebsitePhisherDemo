@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phishing Demo Gallery</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0f172a;
+      color: #f1f5f9;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Animated background particles */
+    .background {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      z-index: -1;
+      background: radial-gradient(#334155 1px, transparent 1px);
+      background-size: 20px 20px;
+      animation: animateBg 10s linear infinite;
+    }
+
+    @keyframes animateBg {
+      0% { background-position: 0 0; }
+      100% { background-position: 100px 100px; }
+    }
+
+    header {
+      background-color: #1e293b;
+      text-align: center;
+      padding: 30px 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    main {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+      transition: transform 0.2s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+    }
+
+    .card h3 {
+      color: #38bdf8;
+      margin-top: 0;
+    }
+
+    .card p {
+      color: #cbd5e1;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #0ea5e9;
+      font-weight: bold;
+      text-decoration: none;
+      background-color: #0f172a;
+      padding: 8px 16px;
+      border-radius: 6px;
+      border: 1px solid #0ea5e9;
+    }
+
+    .card a:hover {
+      background-color: #1e40af;
+      color: white;
+    }
+
+    footer {
+      text-align: center;
+      color: #94a3b8;
+      margin-top: 50px;
+      padding: 30px;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #38bdf8;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+
+  <header>
+    <h1>🎭 Phishing Simulation Demo</h1>
+    <p>Explore different types of phishing attacks in a controlled environment</p>
+  </header>
+
+  <main>
+    <div class="grid">
+      <div class="card">
+        <h3>🏦 Banking Login Scam</h3>
+        <p>See how fake banking portals steal credentials.</p>
+        <a href="banking-sim.html">Launch Demo</a>
+      </div>
+
+      <div class="card">
+        <h3>📧 Gmail Credential Theft</h3>
+        <p>Simulated Google login screen designed to phish your email.</p>
+        <a href="gmail-sim.html">Launch Demo</a>
+      </div>
+
+      <div class="card">
+        <h3>🖥️ Tech Support Scam</h3>
+        <p>Fake "system alert" tricking users into giving system access.</p>
+        <a href="techsupport-sim.html">Launch Demo</a>
+      </div>
+
+      <div class="card">
+        <h3>🎁 Giveaway Phish</h3>
+        <p>Looks like a contest... but it’s a trap!</p>
+        <a href="giveaway-sim.html">Launch Demo</a>
+      </div>
+
+      <div class="card">
+        <h3>🔳 QR Code Attack</h3>
+        <p>Learn how QR codes can lead to malicious websites.</p>
+        <a href="qrcode-sim.html">Launch Demo</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Need more training? Go to the <a href="Learning.html">Learning Hub</a></p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FAQs | GoldPhish</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #ff5c5c;
+      --text-color: #fff;
+      --subtext-color: #ccc;
+      --bg-color: #1a1c2b;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      padding: 50px 20px;
+      position: relative;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    .background-animation {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.03);
+      animation: float 10s infinite ease-in-out;
+    }
+
+    .circle:nth-child(1) { width: 200px; height: 200px; top: 20%; left: 10%; animation-delay: 0s; }
+    .circle:nth-child(2) { width: 300px; height: 300px; top: 50%; left: 70%; animation-delay: 3s; }
+    .circle:nth-child(3) { width: 150px; height: 150px; top: 80%; left: 30%; animation-delay: 6s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-40px) scale(1.05); }
+    }
+
+    .faq-container {
+      position: relative;
+      z-index: 1;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .intro {
+      text-align: center;
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+
+    .search-box {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .search-box input {
+      width: 80%;
+      max-width: 500px;
+      padding: 10px 15px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+    }
+
+    .category-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .category-tabs span {
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 5px 10px;
+      color: var(--subtext-color);
+      border-bottom: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .category-tabs span.active {
+      color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+
+    .faq-section {
+      margin-bottom: 2rem;
+    }
+
+    .faq-item {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      transition: max-height 0.4s ease-in-out;
+    }
+
+    .faq-question {
+      padding: 15px 20px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .faq-answer {
+      padding: 0 20px 15px 20px;
+      color: var(--subtext-color);
+      display: none;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .faq-question {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="background-animation">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+  </div>
+
+  <div class="faq-container">
+    <h1>Your Questions, Answered</h1>
+    <p class="intro">
+      We update our FAQs to support customers and partners. Use the search bar or explore the categories to find answers.
+    </p>
+
+    <div class="search-box">
+      <input type="text" id="faqSearch" placeholder="Search a question...">
+    </div>
+
+    <div class="category-tabs">
+      <span class="tab active" data-category="phishing">Phishing Simulations</span>
+      <span class="tab" data-category="training">Security Awareness Training</span>
+    </div>
+
+    <!-- Phishing Simulations -->
+    <div class="faq-section" id="phishing">
+      <div class="faq-item">
+        <div class="faq-question">What is a phishing simulation?</div>
+        <div class="faq-answer">
+          Simulated phishing emails test employee awareness and are used alongside training to reduce risk.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Why use phishing campaigns?</div>
+        <div class="faq-answer">
+          They reveal weaknesses in human behavior and help organizations train before real attacks hit.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">How does GoldPhish manage phishing campaigns?</div>
+        <div class="faq-answer">
+          We use automated tools and dashboards to create, deliver, and monitor phishing simulations with detailed analytics.
+        </div>
+      </div>
+    </div>
+
+    <!-- Security Awareness Training -->
+    <div class="faq-section" id="training" style="display: none;">
+      <div class="faq-item">
+        <div class="faq-question">What is security awareness training?</div>
+        <div class="faq-answer">
+          It's a training program that teaches employees how to recognize threats like phishing, malware, and social engineering.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">How often should training be done?</div>
+        <div class="faq-answer">
+          At least quarterly, with refreshers as needed based on threat level or employee role changes.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Can training be customized?</div>
+        <div class="faq-answer">
+          Yes. Training modules can be tailored to your industry, compliance needs, and internal policy requirements.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Toggle expand/collapse
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const parent = q.parentElement;
+        parent.classList.toggle('open');
+      });
+    });
+
+    // Category switching
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        document.querySelectorAll('.faq-section').forEach(section => {
+          section.style.display = 'none';
+        });
+
+        document.getElementById(tab.dataset.category).style.display = 'block';
+      });
+    });
+
+    // Search filter
+    document.getElementById('faqSearch').addEventListener('input', function() {
+      const query = this.value.toLowerCase();
+      document.querySelectorAll('.faq-item').forEach(item => {
+        const question = item.querySelector('.faq-question').textContent.toLowerCase();
+        const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+        item.style.display = (question.includes(query) || answer.includes(query)) ? 'block' : 'none';
+      });
+    });
+  </script>
+
+</body>
+</html>

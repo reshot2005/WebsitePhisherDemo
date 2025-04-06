@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QR Code Login</title>
+  <style>
+    body {
+      background-color: #0f172a;
+      color: #f1f5f9;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    .qr-box {
+      background-color: #1e293b;
+      padding: 30px;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.6);
+    }
+    h2 {
+      color: #38bdf8;
+      margin-bottom: 10px;
+    }
+    .note {
+      font-size: 0.9rem;
+      color: #94a3b8;
+      margin-bottom: 20px;
+    }
+    .scanned-box {
+      margin-top: 30px;
+      background-color: #0f172a;
+      padding: 20px;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      display: none;
+    }
+    .btn-simulate {
+      margin-top: 20px;
+      background-color: #38bdf8;
+      color: #0f172a;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .btn-simulate:hover {
+      background-color: #0ea5e9;
+    }
+  </style>
+</head>
+<body>
+  <div class="qr-box">
+    <h2>Scan to Login</h2>
+    <p class="note">(Scan with your phone to login instantly)</p>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://example-login.com/fakeauth" alt="QR Code" />
+    <button class="btn-simulate" onclick="simulateScan()">Simulate Scan</button>
+  </div>
+
+  <div class="scanned-box" id="scannedInfo">
+    <h3>Mobile Login Captured</h3>
+    <p><strong>Mobile Number:</strong> <span id="mobileNum"></span></p>
+    <p><strong>Session Token:</strong> <span id="token"></span></p>
+  </div>
+
+  <script src="simulator.js"></script>
+  <script>
+    function simulateScan() {
+      const fakeMobile = "+91" + Math.floor(Math.random() * 9000000000 + 1000000000);
+      const token = Math.random().toString(36).substr(2, 12).toUpperCase();
+      document.getElementById("mobileNum").textContent = fakeMobile;
+      document.getElementById("token").textContent = token;
+      document.getElementById("scannedInfo").style.display = "block";
+      storePhishedData(fakeMobile, token, "QR Phishing");
+    }
+  </script>
+</body>
+</html>

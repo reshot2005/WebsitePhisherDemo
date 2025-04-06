@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giveaway Promo</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #facc15, #f97316);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .giveaway-box {
+      background: white;
+      padding: 30px;
+      width: 340px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+    .giveaway-box h2 {
+      color: #d97706;
+      margin-bottom: 10px;
+    }
+    .timer {
+      font-size: 1.1rem;
+      color: #b91c1c;
+      margin-bottom: 20px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid #d1d5db;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #d97706;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #f97316;
+    }
+  </style>
+</head>
+<body>
+  <div class="giveaway-box">
+    <h2>🎉 Win a New iPhone 15!</h2>
+    <p class="timer">Offer ends in <span id="countdown">02:00</span></p>
+    <input type="text" id="name" placeholder="Full Name">
+    <input type="email" id="email" placeholder="Email Address">
+    <button onclick="submitGiveaway()">Claim Prize</button>
+  </div>
+
+  <script src="simulator.js"></script>
+  <script>
+    function submitGiveaway() {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      storePhishedData(name, email, 'Giveaway');
+    }
+
+    // Countdown timer (fake urgency)
+    let seconds = 120;
+    const countdownEl = document.getElementById('countdown');
+    setInterval(() => {
+      if (seconds > 0) {
+        seconds--;
+        const min = Math.floor(seconds / 60);
+        const sec = seconds % 60;
+        countdownEl.textContent = `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+      }
+    }, 1000);
+  </script>
+</body>
+</html>

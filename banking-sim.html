@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secure Bank Login</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #e5e5e5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .bank-login {
+      background: white;
+      border-radius: 8px;
+      padding: 30px;
+      width: 360px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    .browser-bar {
+      background-color: #d1d5db;
+      padding: 6px 10px;
+      font-size: 13px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      margin-bottom: 16px;
+    }
+    .browser-bar::before {
+      content: "\1F512";
+      margin-right: 4px;
+    }
+    h2 {
+      margin: 0 0 20px;
+      color: #1e3a8a;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      width: 100%;
+      background-color: #1e3a8a;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1d4ed8;
+    }
+  </style>
+</head>
+<body>
+  <div class="bank-login">
+    <div class="browser-bar">https://securebanking-login.com</div>
+    <h2>Bank Secure Login</h2>
+    <input type="text" id="username" placeholder="Customer ID or Email" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="phishBank()">Sign In</button>
+  </div>
+
+  <script src="simulator.js"></script>
+  <script>
+    function phishBank() {
+      const user = document.getElementById('username').value;
+      const pass = document.getElementById('password').value;
+      storePhishedData(user, pass, 'Bank');
+    }
+  </script>
+</body>
+</html>

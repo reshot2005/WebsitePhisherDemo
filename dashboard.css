@@ -1,0 +1,97 @@
+/* dashboard.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0f172a;
+    color: #e2e8f0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #1e293b;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #334155;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #38bdf8;
+  }
+  
+  header p {
+    margin: 8px 0 0;
+    color: #94a3b8;
+  }
+  
+  main {
+    padding: 30px;
+    max-width: 900px;
+    margin: auto;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #334155;
+  }
+  
+  th {
+    background-color: #0f172a;
+    color: #facc15;
+    font-weight: bold;
+  }
+  
+  td {
+    color: #f1f5f9;
+  }
+  
+  tr:hover {
+    background-color: #334155;
+  }
+  
+  button {
+    background-color: #38bdf8;
+    color: #0f172a;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #0ea5e9;
+  }
+  
+  footer {
+    padding: 20px;
+    background-color: #1e293b;
+    border-top: 2px solid #334155;
+    text-align: center;
+  }
+  
+  footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  footer li {
+    margin: 8px 0;
+    color: #94a3b8;
+    font-size: 0.95rem;
+  }

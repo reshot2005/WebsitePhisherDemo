@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram Login</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-container {
+      background: #fff;
+      padding: 40px;
+      border: 1px solid #dbdbdb;
+      width: 320px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+      border-radius: 10px;
+    }
+    .logo {
+      font-family: cursive;
+      font-size: 36px;
+      color: #405de6;
+      margin-bottom: 30px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #dbdbdb;
+      border-radius: 5px;
+      background: #fafafa;
+    }
+    button {
+      background: #405de6;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      width: 100%;
+      margin-top: 12px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #3b4cca;
+    }
+    .fake-browser-bar {
+      background: #f1f5f9;
+      padding: 8px 12px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      width: 100%;
+      text-align: left;
+      color: #4b5563;
+      font-size: 12px;
+      margin-bottom: 20px;
+      box-shadow: inset 0 -1px 0 #d1d5db;
+    }
+    .ssl-lock {
+      color: green;
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="fake-browser-bar">
+      <span class="ssl-lock">🔒</span> https://insta-verify-login.com
+    </div>
+    <div class="logo">Instagram</div>
+    <input type="text" id="username" placeholder="Phone number, username, or email">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="phishLogin()">Log In</button>
+  </div>
+
+  <script src="simulator.js"></script>
+  <script>
+    function phishLogin() {
+      const u = document.getElementById('username').value;
+      const p = document.getElementById('password').value;
+      storePhishedData(u, p, 'Instagram');
+    }
+  </script>
+</body>
+</html>

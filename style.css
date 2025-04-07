@@ -1,3 +1,4 @@
+/* Reset & Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -10,18 +11,21 @@ body {
   color: #fff;
 }
 
+/* Navbar - Centered Logo + Underneath Navigation */
 .navbar {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  padding: 25px 50px;
-  flex-wrap: wrap;
+  text-align: center;
+  padding: 25px 20px;
 }
 
 .logo {
   display: flex;
   align-items: center;
   gap: 10px;
+  justify-content: center;
+  margin-bottom: 15px;
 }
 
 .logo-text {
@@ -30,42 +34,26 @@ body {
   color: #ffffff;
 }
 
-/* Hamburger Toggle */
-.mobile-nav-toggle {
-  display: none;
-  font-size: 28px;
-  cursor: pointer;
-  color: white;
-  background: none;
-  border: none;
-}
-
-nav {
+nav.centered-nav {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
-nav a {
+nav.centered-nav a {
   color: #fff;
   text-decoration: none;
-  margin-left: 30px;
   font-weight: 500;
+  font-size: 16px;
   transition: color 0.3s ease;
 }
 
-nav a:hover {
+nav.centered-nav a:hover {
   color: #ff4d4d;
 }
 
-/* Active state for mobile menu */
-nav.mobile-active {
-  display: flex !important;
-  flex-direction: column;
-  width: 100%;
-  gap: 12px;
-  margin-top: 10px;
-}
-
+/* Hero Section */
 .hero {
   text-align: center;
   padding: 100px 20px;
@@ -86,6 +74,7 @@ nav.mobile-active {
   line-height: 1.6;
 }
 
+/* Buttons */
 .buttons {
   display: flex;
   justify-content: center;
@@ -119,6 +108,7 @@ nav.mobile-active {
   background-color: #e63434;
 }
 
+/* Background Blob */
 .blob-background {
   position: absolute;
   top: 30%;
@@ -133,33 +123,19 @@ nav.mobile-active {
   z-index: -1;
 }
 
-/* MOBILE ENHANCEMENTS */
+/* Responsive Enhancements */
 @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 15px 20px;
-  }
-
-  .mobile-nav-toggle {
-    display: block;
-    align-self: flex-end;
-    margin-top: 10px;
-  }
-
-  nav {
-    display: none;
-    width: 100%;
-  }
-
-  nav a {
-    margin: 0;
-    font-size: 16px;
-    padding: 8px 0;
-  }
-
   .logo-text {
     font-size: 22px;
+  }
+
+  nav.centered-nav {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  nav.centered-nav a {
+    font-size: 15px;
   }
 
   .hero {
@@ -193,11 +169,5 @@ nav.mobile-active {
     text-align: center;
     padding: 14px;
     font-size: 15px;
-  }
-
-  .blob-background {
-    top: 30%;
-    width: 600px;
-    height: 400px;
   }
 }

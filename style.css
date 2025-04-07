@@ -39,8 +39,8 @@ nav.centered-nav {
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  flex-direction: row; /* Horizontal */
 }
-
 nav.centered-nav a {
   color: #fff;
   text-decoration: none;
@@ -125,18 +125,18 @@ nav.centered-nav a:hover {
 
 /* Responsive Enhancements */
 @media (max-width: 768px) {
-  .logo-text {
-    font-size: 22px;
-  }
-
   nav.centered-nav {
-    flex-direction: column;
-    gap: 12px;
+    flex-direction: row;      /* Keep it horizontal on mobile */
+    justify-content: center;  /* Center it */
+    gap: 15px;
+    flex-wrap: wrap;          /* Wrap if needed on small screens */
   }
 
   nav.centered-nav a {
     font-size: 15px;
+    padding: 6px 10px;
   }
+}
 
   .hero {
     padding: 60px 15px;

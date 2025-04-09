@@ -34,7 +34,8 @@ A realistic phishing awareness simulation website designed for training, educati
 
 ## 🖥️ Live Demo
 
-🔗 [View Live Website](www.codiepro.in)
+🔗 [View Live Website](https://www.codiepro.in)
+
 
 ## 📬 Contact
 
